@@ -3,7 +3,9 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Color;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -84,10 +86,17 @@ public class GameFrame extends JFrame {
 
     private void createScreen() {
 
+        getContentPane().setBackground(
+                new Color(245, 245, 245));
+
         setLayout(new BorderLayout());
 
-        lblTurn = new JLabel("Turno: " + currentPlayerName());
-        lblTurn.setFont(new Font("Arial", Font.BOLD, 22));
+        lblTurn = new JLabel(
+                "Turno: " + currentPlayerName(),
+                JLabel.CENTER);
+
+        lblTurn.setFont(
+                new Font("Segoe UI", Font.BOLD, 28));
 
         add(lblTurn, BorderLayout.NORTH);
 
@@ -99,7 +108,10 @@ public class GameFrame extends JFrame {
 
                 JButton btn = new JButton("");
 
-                btn.setFont(new Font("Arial", Font.BOLD, 50));
+                btn.setFont(
+                        new Font("Segoe UI", Font.BOLD, 80));
+
+                btn.setFocusPainted(false);
 
                 int l = lin;
                 int c = col;
@@ -115,6 +127,9 @@ public class GameFrame extends JFrame {
         add(board, BorderLayout.CENTER);
 
         JPanel scorePanel = new JPanel(new GridLayout(3, 1));
+        scorePanel.setBorder(
+                BorderFactory.createTitledBorder(
+                        "🏆 Placar"));
 
         lblScore1 = new JLabel(player1Name + ": 0");
         lblScore2 = new JLabel(player2Name + ": 0");
@@ -124,13 +139,32 @@ public class GameFrame extends JFrame {
         scorePanel.add(lblScore2);
         scorePanel.add(lblDraw);
 
+        lblScore1.setHorizontalAlignment(
+                JLabel.CENTER);
+
+        lblScore2.setHorizontalAlignment(
+                JLabel.CENTER);
+
+        lblDraw.setHorizontalAlignment(
+                JLabel.CENTER);
+
         add(scorePanel, BorderLayout.EAST);
 
         JButton btnNewGame = new JButton("Nova Partida");
 
         JButton btnRanking = new JButton("Ranking");
 
-        JPanel bottom = new JPanel();
+        btnNewGame.setFont(
+                new Font("Segoe UI",
+                        Font.BOLD,
+                        16));
+
+        btnRanking.setFont(
+                new Font("Segoe UI",
+                        Font.BOLD,
+                        16));
+
+        JPanel bottom = new JPanel(new GridLayout(1, 2, 10, 10));
 
         bottom.add(btnNewGame);
         bottom.add(btnRanking);
@@ -216,6 +250,17 @@ public class GameFrame extends JFrame {
                         mark == Mark.BLANK
                                 ? ""
                                 : mark.toString());
+
+                if (mark == Mark.X) {
+
+                    buttons[lin][col]
+                            .setForeground(Color.BLUE);
+
+                } else if (mark == Mark.O) {
+
+                    buttons[lin][col]
+                            .setForeground(Color.RED);
+                }
             }
         }
     }
@@ -293,7 +338,9 @@ public class GameFrame extends JFrame {
 
         JOptionPane.showMessageDialog(
                 this,
-                winnerName + " venceu!");
+                "🏆 " + winnerName + " venceu!",
+                "Fim da Partida",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void drawGame() {
