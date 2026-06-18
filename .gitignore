@@ -1,14 +1,12 @@
 # Java
 *.class
 
-# Eclipse build
+# Build
 bin/
-
-# CMD build
 out/
 
-# Logs
-*.log
+# Generated jar
+*.jar
 
-# Histórico do jogo
+# Game history
 TicTacToeHistory.obj

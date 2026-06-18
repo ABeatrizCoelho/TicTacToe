@@ -1,6 +1,6 @@
 ## Sobre o Projeto
 
-![Imagem do Projeto](SWINGGUI.png)
+![Imagem do Projeto](GAMEGUI.png)
 
 Este projeto foi desenvolvido originalmente durante o segundo semestre do curso de graduação, na disciplina de Programação Orientada a Objetos (POO), utilizando Java.
 
@@ -18,3 +18,13 @@ Posteriormente, o projeto foi revisitado como forma de estudo e aprimoramento pe
 O objetivo dessa evolução foi praticar o desenvolvimento de interfaces gráficas, reutilização de código, separação de responsabilidades e manutenção de software orientado a objetos, aproveitando a lógica já existente da versão original.
 
 Dessa forma, o repositório contém tanto a versão console quanto a versão gráfica do jogo, permitindo comparar diferentes formas de interação utilizando a mesma base de regras de negócio.
+
+## Download
+
+Baixe a versão mais recente em:
+
+https://github.com/ABeatrizCoelho/TicTacToe/releases/tag/v1.0
+
+## Executar
+
+java -jar TicTacToe.jar
