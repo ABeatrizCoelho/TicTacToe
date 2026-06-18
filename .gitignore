@@ -1,0 +1,14 @@
+# Java
+*.class
+
+# Eclipse build
+bin/
+
+# CMD build
+out/
+
+# Logs
+*.log
+
+# Histórico do jogo
+TicTacToeHistory.obj
